@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row d-flex justify-content-center text-center m-3">
+    <div class="col-12">
+      <span class="font-weight-bold" style="font-size: 2rem;">Vmware Project </span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">Select Item</th>
+            <th scope="col">ToDo Label</th>
+            <th scope="col">ToDo Priority</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr [class]="selectedId == indexOfelement? 'grey-color':''" *ngFor="let item of todolist;let indexOfelement=index;">
+            <td>
+              <div class="custom-control custom-checkbox">
+                  <input type="checkbox" class="custom-control-input" [id]="item.id" (change)="onChangeCheckbox($event, item)">
+                  <label class="custom-control-label" [for]="item.id">{{item.id}}</label>
+              </div>
+            </td>
+
+            <td (dblclick)="editItem(item)">
+              <span [hidden]="item.editing" >{{item.label}}</span>
+              <input [hidden]="!item.editing" [(ngModel)]="item.label" (focusout)="doneEditing(item)" autofocus />
+            </td>
+            <td (dblclick)="editItem(item)">
+              <span [hidden]="item.editing" >{{item.priority}}</span>
+              <input [hidden]="!item.editing" [(ngModel)]="item.priority" (focusout)="doneEditing(item)" autofocus />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="row"> 
+          <button (click)="addItem()">Add Item</button>
+      </div>
+    </div>
+  </div>
+</div>
