@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row d-flex justify-content-center text-center m-3">
     <div class="col-12">
-      <span class="font-weight-bold" style="font-size: 2rem;">Vmware Project </span>
+      <span class="font-weight-bold" style="font-size: 2rem;">Vmware Project</span>
     </div>
   </div>
   <div class="row">
@@ -14,7 +14,7 @@
             <th scope="col">ToDo Priority</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody class="tbody">
           <tr [class]="selectedId == indexOfelement? 'grey-color':''" *ngFor="let item of todolist;let indexOfelement=index;">
             <td>
               <div class="custom-control custom-checkbox">
@@ -35,7 +35,7 @@
         </tbody>
       </table>
       <div class="row"> 
-          <button (click)="addItem()">Add Item</button>
+          <button id="addItem" (click)="addItem()">Add Item</button>
       </div>
     </div>
   </div>

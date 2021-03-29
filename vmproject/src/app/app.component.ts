@@ -115,6 +115,9 @@ export class AppComponent implements OnInit{
           this.todolist.forEach((element:any,i:number) => {
             if(element.id == id)
               this.todolist.splice(i,1)
+              if(this.selectedId == element.id){
+                this.selectedId = 0;
+              }
           });
       })
     }
